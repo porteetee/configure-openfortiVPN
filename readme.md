@@ -1,5 +1,5 @@
-# Configure SSL-VPN (Fortigate)
-## Configure VPN Client on linux with openfortiVPN
+## Configure SSL-VPN (Fortigate)
+### Configure VPN Client on linux with openfortiVPN
 install openfortivpn
 ```base
 sudo apt update
@@ -21,7 +21,7 @@ find `ERROR:      --trusted-cert ##########################`
 sudo openfortivpn {host}:{port} -u {user} --trusted-cert {cert code} -v
 ```
 
-## Configure OpenfortiVPN with ini
+### Configure OpenfortiVPN with ini
 Go to config openfortivpn at path `/etc/openfortivpn/config`.
 ```base
 sudo nano /etc/openfortivpn/config.ini
