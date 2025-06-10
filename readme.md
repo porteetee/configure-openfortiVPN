@@ -10,16 +10,23 @@ Test connect
 ```base
 sudo openfortivpn {host}:{port} -u {user} -p {password}
 ```
+
 Or enter the password later.
 ```base
 sudo openfortivpn {host}:{port} -u {user}
 ```
+> [!NOTE]
+Replace `{host}` with the actual hostname or IP address.<br>
+Replace `{port}` with the SSL-VPN port (usually 443).<br>
+Replace `{user}` `{password}` with your VPN username and password.
 
 If the connection error is due to trusted-cert.
 find `ERROR:      --trusted-cert ##########################`
 ```base
 sudo openfortivpn {host}:{port} -u {user} --trusted-cert {cert code} -v
 ```
+> [!NOTE]
+Replace `{cert code}` with trusted-cert code or certificate.
 
 ### Configure OpenfortiVPN with ini
 Go to config openfortivpn at path `/etc/openfortivpn/config`.
