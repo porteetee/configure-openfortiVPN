@@ -1,18 +1,18 @@
 ## Configure SSL-VPN (Fortigate)
 ### Configure VPN Client on linux with openfortiVPN
 install openfortivpn
-```base
+```bash
 sudo apt update
 sudo apt install openfortivpn
 ```
 
 Test connect 
-```base
+```bash
 sudo openfortivpn {host}:{port} -u {user} -p {password}
 ```
 
 Or enter the password later.
-```base
+```bash
 sudo openfortivpn {host}:{port} -u {user}
 ```
 > [!NOTE]
@@ -22,7 +22,7 @@ Replace `{user}` `{password}` with your VPN username and password.
 
 If the connection error is due to trusted-cert.
 find `ERROR:      --trusted-cert ##########################`
-```base
+```bash
 sudo openfortivpn {host}:{port} -u {user} --trusted-cert {cert code} -v
 ```
 > [!NOTE]
@@ -30,11 +30,11 @@ Replace `{cert code}` with trusted-cert code or certificate.
 
 ### Configure OpenfortiVPN with ini
 Go to config openfortivpn at path `/etc/openfortivpn/config`.
-```base
+```bash
 sudo nano /etc/openfortivpn/config.ini
 ```
 Edit file `ini`.
-```base
+```bash
 host = {host}
 port = {Port}
 realm = pub-all
@@ -44,17 +44,17 @@ trusted-cert = {cert code}
 ```
 
 Test running openfortivpn via config.
-```base
+```bash
 sudo openfortivpn -c /etc/openfortivpn/config -v
 ```
 
 Provide openfortivpn autostart service.
-```base
+```bash
 sudo nano /etc/systemd/system/openfortivpn.service
 ```
 
 Edit file `Service`.
-```base
+```bash
 [Service]
 ExecStart=/usr/bin/openfortivpn -c /etc/openfortivpn/config
 Restart=always
@@ -63,12 +63,12 @@ CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 ```
 
 Enable and start servive.
-```base
+```bash
 sudo systemctl enable openfortivpn.service
 sudo systemctl start openfortivpn.service
 ```
 Check status service.
-```base
+```bash
 sudo systemctl status openfortivpn.service
 ```
 
